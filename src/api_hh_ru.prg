@@ -27,7 +27,7 @@ LOCAL http, url0, text, qwe, timeout, CountV, CountP, isk, pg, url_, i, ii, url1
 
 	CountV = qwe.get("found")
 	If CountV = 0 Then
-	    MESSAGEBOX("Ничего не найдено.")
+	    MESSAGEBOX("РќРёС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ.")
 	    RETURN
 	EndIf
 
