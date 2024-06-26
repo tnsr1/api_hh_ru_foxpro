@@ -12,10 +12,12 @@ FUNCTION URLEncode(txt As String) As String
 			buffer = buffer + "%" + Hex1(128 + MOD(a,64))
 		ENDIF
 	EndFor
-RETURN buffer
+	RETURN buffer
+ENDFUNC
 
 FUNCTION INTDEV(x, y)
-RETURN INT(ROUND(x,0)/ROUND(y,0))
+	RETURN INT(ROUND(x,0)/ROUND(y,0))
+ENDFUNC
 
 FUNCTION Hex1(tnNum)
     RETURN STRCONV(CHR(tnNum), 15)
