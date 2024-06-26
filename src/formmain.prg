@@ -18,7 +18,7 @@ DEFINE CLASS formmain AS form
 
 
 	ADD OBJECT label1 AS label WITH ;
-		Caption = "Запрос", ;
+		Caption = "Р—Р°РїСЂРѕСЃ", ;
 		Height = 17, ;
 		Left = 12, ;
 		Top = 16, ;
@@ -36,7 +36,7 @@ DEFINE CLASS formmain AS form
 
 
 	ADD OBJECT label2 AS label WITH ;
-		Caption = "Мои навыки", ;
+		Caption = "РњРѕРё РЅР°РІС‹РєРё", ;
 		Height = 17, ;
 		Left = 12, ;
 		Top = 44, ;
@@ -60,7 +60,7 @@ DEFINE CLASS formmain AS form
 		Left = 12, ;
 		Height = 25, ;
 		Width = 97, ;
-		Caption = "Поиск", ;
+		Caption = "РџРѕРёСЃРє", ;
 		Name = "cmdSearch"
 
 
@@ -148,7 +148,7 @@ DEFINE CLASS column2 AS column
 
 	ADD OBJECT header1 AS header WITH ;
 		Alignment = 2, ;
-		Caption = "Название", ;
+		Caption = "РќР°Р·РІР°РЅРёРµ", ;
 		Name = "Header1"
 
 
@@ -165,7 +165,7 @@ DEFINE CLASS column3 AS column
 
 	ADD OBJECT header1 AS header WITH ;
 		Alignment = 2, ;
-		Caption = "Ссылка", ;
+		Caption = "РЎСЃС‹Р»РєР°", ;
 		Name = "Header1"
 
 	ADD OBJECT hyperlink1 AS hyperlink1 WITH ;
