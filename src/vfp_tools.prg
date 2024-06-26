@@ -24,7 +24,7 @@ FUNCTION UnicodeVal(tcString)
     LOCAL lcUnicodeString, lnUnicodeCode
     
     lcUnicodeString = STRCONV(tcString, 5, 0x419)
-    * Получение кода первого двухбайтового символа
+    * РџРѕР»СѓС‡РµРЅРёРµ РєРѕРґР° РїРµСЂРІРѕРіРѕ РґРІСѓС…Р±Р°Р№С‚РѕРІРѕРіРѕ СЃРёРјРІРѕР»Р°
 	lnUnicodeCode = ASC(SUBSTR(lcUnicodeString, 1, 1)) + ;
                     ASC(SUBSTR(lcUnicodeString, 2, 1)) * 256
     
