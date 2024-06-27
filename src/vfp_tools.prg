@@ -5,17 +5,15 @@ FUNCTION URLEncode(txt As String) As String
 	buffer = ""
 	For i = 1 To Len(txt)
 		c = SUBSTR(txt, i, 1)
-		IF ASC(c) < 128
-			IF ASC(c) = 32
-				buffer = buffer + "%20"
-			ELSE
-				buffer = buffer + c
-			ENDIF
-		ELSE
-			a = UnicodeVal(c)
-			buffer = buffer + "%" + Hex1(192 + INT(a / 64))
-			buffer = buffer + "%" + Hex1(128 + MOD(a,64))
-		ENDIF
+		DO CASE
+		CASE c = ' '
+		    c = "%20"
+		CASE ASC(c) > 127
+		    a = UnicodeVal(c)
+		    c = "%" + Hex1(192 + INT(a/64))+ "%" + Hex1(128 + MOD(a,64))
+		ENDCASE
+
+		buffer = buffer + c
 	EndFor
 	RETURN buffer
 ENDFUNC
