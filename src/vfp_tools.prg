@@ -6,7 +6,7 @@ FUNCTION URLEncode(txt As String) As String
 	For i = 1 To Len(txt)
 	c = SUBSTR(txt, i, 1)
 	DO CASE
-	CASE INLIST(c, " ", "-", "~", "_", ".") OR ISDIGIT(c) OR ISALPHA(c)
+	CASE ASC(c) < 128 AND (INLIST(c, " ", "-", "~", "_", ".") OR ISDIGIT(c) OR ISALPHA(c))
 	    c = "%" + Hex1(ASC(c))
 	CASE ASC(c) > 127
 	    a = UnicodeVal(c)
