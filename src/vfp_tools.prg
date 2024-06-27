@@ -6,7 +6,11 @@ FUNCTION URLEncode(txt As String) As String
 	For i = 1 To Len(txt)
 		c = SUBSTR(txt, i, 1)
 		IF ASC(c) < 128
-			buffer = buffer + c
+			IF ASC(c) = 32
+				buffer = buffer + "%20"
+			ELSE
+				buffer = buffer + c
+			ENDIF
 		ELSE
 			a = UnicodeVal(c)
 			buffer = buffer + "%" + Hex1(192 + INT(a / 64))
