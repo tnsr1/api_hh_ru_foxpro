@@ -9,7 +9,7 @@ FUNCTION URLEncode(txt As String) As String
 			buffer = buffer + c
 		ELSE
 			a = UnicodeVal(c)
-			buffer = buffer + "%" + Hex1(192 + INTDEV(a, 64))
+			buffer = buffer + "%" + Hex1(192 + INT(a / 64))
 			buffer = buffer + "%" + Hex1(128 + MOD(a,64))
 		ENDIF
 	EndFor
