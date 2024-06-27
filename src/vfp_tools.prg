@@ -23,13 +23,8 @@ FUNCTION Hex1(tnNum)
     RETURN STRCONV(CHR(tnNum), 15)
 ENDFUNC
 
-FUNCTION UnicodeVal(tcString)
-    LOCAL lcUnicodeString, lnUnicodeCode
-    
-    lcUnicodeString = STRCONV(tcString, 5, 0x419)
-    * Получение кода первого двухбайтового символа
-	lnUnicodeCode = ASC(SUBSTR(lcUnicodeString, 1, 1)) + ;
-                    ASC(SUBSTR(lcUnicodeString, 2, 1)) * 256
-    
-    RETURN lnUnicodeCode
+* Функция-аналог AscW (упрощенный вариант)
+FUNCTION UnicodeVal
+PARAMETERS tcString
+	RETURN CTOBIN(STRCONV(LEFT(tcString,1), 5, 0x419), '2sr')
 ENDFUNC
