@@ -7,10 +7,10 @@ FUNCTION URLEncode(txt As String) As String
 	c = SUBSTR(txt, i, 1)
 	DO CASE
 	CASE ASC(c) < 128 AND (INLIST(c, " ", "-", "~", "_", ".") OR ISDIGIT(c) OR ISALPHA(c))
-	    c = "%" + Hex1(ASC(c))
+	    c = "%" + Hex1(c)
 	CASE ASC(c) > 127
 	    a = UnicodeVal(c)
-	    c = "%" + Hex1(192 + INT(a / 64))+ "%" + Hex1(128 + MOD(a, 64))
+	    c = "%" + Hex2(192 + INT(a / 64))+ "%" + Hex2(128 + MOD(a, 64))
 	ENDCASE
 	
 	buffer = buffer + c
@@ -18,12 +18,16 @@ FUNCTION URLEncode(txt As String) As String
 	RETURN buffer
 ENDFUNC
 
-FUNCTION INTDEV(x, y)
-	RETURN INT(ROUND(x,0)/ROUND(y,0))
+FUNCTION Hex1(tcChar)
+    RETURN STRCONV(tcChar, 15)
 ENDFUNC
 
-FUNCTION Hex1(tnNum)
+FUNCTION Hex2(tnNum)
     RETURN STRCONV(CHR(tnNum), 15)
+ENDFUNC
+
+FUNCTION INTDEV(x, y)
+	RETURN INT(ROUND(x,0)/ROUND(y,0))
 ENDFUNC
 
 * Функция-аналог AscW (упрощенный вариант)
