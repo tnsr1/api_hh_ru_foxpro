@@ -1,4 +1,5 @@
 *Foxpro code
+*https://forum.foxclub.ru/read.php?29,886031
 FUNCTION URLEncode(txt As String) As String
 	LOCAL buffer As String, i As Integer, c As Integer, a as Integer
 	buffer = ""
