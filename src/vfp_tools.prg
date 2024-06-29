@@ -4,16 +4,16 @@ FUNCTION URLEncode(txt As String) As String
 	LOCAL buffer As String, i As Integer, c As Integer, a as Integer
 	buffer = ""
 	For i = 1 To Len(txt)
-	c = SUBSTR(txt, i, 1)
-	DO CASE
-	CASE ASC(c) < 128 AND !(c $ [-~_.?:=&/()] OR ISDIGIT(c) OR ISALPHA(c))
-	    c = "%" + Hex1(c)
-	CASE ASC(c) > 127
-	    a = UnicodeVal(c)
-	    c = "%" + Hex2(192 + INT(a / 64))+ "%" + Hex2(128 + MOD(a, 64))
-	ENDCASE
-	
-	buffer = buffer + c
+		c = SUBSTR(txt, i, 1)
+		DO CASE
+		CASE ASC(c) < 128 AND !(c $ [-~_.?:=&/()] OR ISDIGIT(c) OR ISALPHA(c))
+		    c = "%" + Hex1(c)
+		CASE ASC(c) > 127
+		    a = UnicodeVal(c)
+		    c = "%" + Hex2(192 + INT(a / 64))+ "%" + Hex2(128 + MOD(a, 64))
+		ENDCASE
+		
+		buffer = buffer + c
 	EndFor
 	RETURN buffer
 ENDFUNC
